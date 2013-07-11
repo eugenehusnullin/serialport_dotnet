@@ -68,9 +68,16 @@ namespace SerialPortTerminal
             this.btnChooseFile = new System.Windows.Forms.Button();
             this.chbChooseSave = new System.Windows.Forms.CheckBox();
             this.btnSaveCheckSum = new System.Windows.Forms.Button();
+            this.gbCAN = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbFuelValue = new System.Windows.Forms.TextBox();
+            this.tbRamka = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnStartStopCAN = new System.Windows.Forms.Button();
             this.gbMode.SuspendLayout();
             this.gbPortSettings.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gbCAN.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtfTerminal
@@ -79,7 +86,7 @@ namespace SerialPortTerminal
             | System.Windows.Forms.AnchorStyles.Left)));
             this.rtfTerminal.Location = new System.Drawing.Point(12, 12);
             this.rtfTerminal.Name = "rtfTerminal";
-            this.rtfTerminal.Size = new System.Drawing.Size(428, 376);
+            this.rtfTerminal.Size = new System.Drawing.Size(428, 277);
             this.rtfTerminal.TabIndex = 0;
             this.rtfTerminal.Text = "";
             // 
@@ -426,7 +433,7 @@ namespace SerialPortTerminal
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flPanel.Location = new System.Drawing.Point(446, 12);
             this.flPanel.Name = "flPanel";
-            this.flPanel.Size = new System.Drawing.Size(261, 353);
+            this.flPanel.Size = new System.Drawing.Size(261, 277);
             this.flPanel.TabIndex = 12;
             // 
             // tbSendFileName
@@ -475,7 +482,7 @@ namespace SerialPortTerminal
             // 
             this.chbChooseSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chbChooseSave.AutoSize = true;
-            this.chbChooseSave.Location = new System.Drawing.Point(446, 373);
+            this.chbChooseSave.Location = new System.Drawing.Point(446, 382);
             this.chbChooseSave.Name = "chbChooseSave";
             this.chbChooseSave.Size = new System.Drawing.Size(122, 17);
             this.chbChooseSave.TabIndex = 17;
@@ -493,11 +500,70 @@ namespace SerialPortTerminal
             this.btnSaveCheckSum.UseVisualStyleBackColor = true;
             this.btnSaveCheckSum.Click += new System.EventHandler(this.btnSaveCheckSum_Click);
             // 
+            // gbCAN
+            // 
+            this.gbCAN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.gbCAN.Controls.Add(this.btnStartStopCAN);
+            this.gbCAN.Controls.Add(this.label3);
+            this.gbCAN.Controls.Add(this.tbRamka);
+            this.gbCAN.Controls.Add(this.tbFuelValue);
+            this.gbCAN.Controls.Add(this.label2);
+            this.gbCAN.Location = new System.Drawing.Point(12, 295);
+            this.gbCAN.Name = "gbCAN";
+            this.gbCAN.Size = new System.Drawing.Size(692, 82);
+            this.gbCAN.TabIndex = 19;
+            this.gbCAN.TabStop = false;
+            this.gbCAN.Text = "CAN";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Уровень топлива";
+            // 
+            // tbFuelValue
+            // 
+            this.tbFuelValue.Location = new System.Drawing.Point(113, 13);
+            this.tbFuelValue.Name = "tbFuelValue";
+            this.tbFuelValue.Size = new System.Drawing.Size(56, 20);
+            this.tbFuelValue.TabIndex = 1;
+            this.tbFuelValue.TextChanged += new System.EventHandler(this.tbFuelValue_TextChanged);
+            // 
+            // tbRamka
+            // 
+            this.tbRamka.Location = new System.Drawing.Point(227, 13);
+            this.tbRamka.Name = "tbRamka";
+            this.tbRamka.Size = new System.Drawing.Size(417, 20);
+            this.tbRamka.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(181, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Рамка";
+            // 
+            // btnStartStopCAN
+            // 
+            this.btnStartStopCAN.Location = new System.Drawing.Point(34, 45);
+            this.btnStartStopCAN.Name = "btnStartStopCAN";
+            this.btnStartStopCAN.Size = new System.Drawing.Size(75, 23);
+            this.btnStartStopCAN.TabIndex = 4;
+            this.btnStartStopCAN.Text = "Старт";
+            this.btnStartStopCAN.UseVisualStyleBackColor = true;
+            this.btnStartStopCAN.Click += new System.EventHandler(this.btnStartStopCAN_Click);
+            // 
             // frmTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 594);
+            this.Controls.Add(this.gbCAN);
             this.Controls.Add(this.btnSaveCheckSum);
             this.Controls.Add(this.chbChooseSave);
             this.Controls.Add(this.btnChooseFile);
@@ -529,6 +595,8 @@ namespace SerialPortTerminal
             this.gbPortSettings.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbCAN.ResumeLayout(false);
+            this.gbCAN.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,6 +642,12 @@ namespace SerialPortTerminal
         private System.Windows.Forms.Button btnChooseFile;
         private System.Windows.Forms.CheckBox chbChooseSave;
         private System.Windows.Forms.Button btnSaveCheckSum;
+        private System.Windows.Forms.GroupBox gbCAN;
+        private System.Windows.Forms.TextBox tbFuelValue;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbRamka;
+        private System.Windows.Forms.Button btnStartStopCAN;
   }
 }
 
